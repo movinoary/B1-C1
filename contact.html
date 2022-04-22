@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="assets/css/style.css">
+        <title>Contact Me</title>
+    </head>
+    <body>
+        <nav>
+            <div class="nav-left"> 
+                <a href="index.html">
+                    <img src="assets/img/logo2.png" alt="">
+                </a>
+                <ul>
+                    <a href="index.html">
+                        <li>Home</li>
+                    </a>
+                    <a href="#">
+                        <li>My Project</li>
+                    </a>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <a href="contact.html">Concatc Me</a>
+            </div>
+        </nav>
+        <div class="form-contact">
+            <div class="container-form">
+                <h1>GET IN TOUCH</h1>
+                <form>
+                    <div>
+                        <label for="name">Name</label>
+                        <input id="name" type="text">
+                    </div>
+                    <div>
+                        <label for="email">E-mail</label>
+                        <input id="email" type="email">
+                    </div>
+                    <div>
+                        <label for="phone">Phone Number</label>
+                        <input id="phone" type="text" pattern="[0-9]">
+                    </div>
+                    <div>
+                        <label for="subject">Subject</label>
+                        <select id="subject">
+                            <option hidden></option>
+                            <option>Lets Talk</option>
+                            <option>Lets Collaboration</option>
+                            <option>Iam Hiring</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="message">Your Message</label>
+                        <textarea id="message"></textarea>
+                    </div>
+                    <div class="button">
+                        <button type="submit">submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
