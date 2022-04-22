@@ -3,45 +3,35 @@ let projects = [];
 function addProject(event) {
     event.preventDefault();
 
+
     let name = document.getElementById("input-myprojek-name").value;
     let startdate = document.getElementById("input-myprojek-date-start").value;
     let enddate = document.getElementById("input-myprojek-date-end").value;
     let description = document.getElementById("input-myprojek-description").value;
-    let technologies = document.getElementById("input-myprojek-technologies");
+    let technologies = document.getElementsByClassName(".checkbox").value;
     let image = document.getElementById("input-myprojek-image");
 
     image = URL.createObjectURL(image.files[0]);
 
-    var checkboxs = document.querySelectorAll('.checkbox');
-    console.log(checkboxs)
+    const dateStart = new Date (startdate);
+    const dateEnd = new Date (enddate);
+    const time = Math.abs(dateEnd - dateStart);
+    const days = Math.ceil(time / (1000 * 60 * 60 * 24));
+    const week = Math.ceil(days / 7);
+    const month = Math.ceil(week / 4); // Math.ceil(days / 30)
 
-    // for(var checkbox of checkboxs) {
-    //     checkbox.addEventListener('click', function(){
-    //         if(this.checked == true) {
-    //             technologies.push(this.value)
-    //         } else {
-    //             technologies = technologies.filter(e => e !== this.value)
-    //         }
-    //     })
-    // }
 
-    let project = {name, startdate, enddate, description, technologies, image};
+    let project = {name, startdate, enddate, description, technologies, image, month};
 
     projects.push(project);
 
     console.log(projects);
 
-    let testInnerHTML = document.getElementById("new-projek");
-    
-    // testInnerHTML.innerHTML = `
-    //  <h1>${project.name}</h1>
-    //  <p>${project.description}</p>
-    //  <img src="${project.image}"/>
-    //  `
-
     renderProjek()
 
 };
+
+
 
 function renderProjek() {
     let containerProjek = document.getElementById('new-projek');
@@ -52,7 +42,7 @@ function renderProjek() {
         <div class="projek-card">
         <img src=${projects[i].image} alt="my-project">
         <h3>${projects[i].name}</h3>
-        <p class="projek-date">Durasi: 3 bulan</p>
+        <p class="projek-date">Durasi: ${projects[i].month} bulan</p>
         <p class="projek-desc">${projects[i].description}</p>
         <div class="projek-card-icon">
             <p> ${projects[i].technologies}</p>
